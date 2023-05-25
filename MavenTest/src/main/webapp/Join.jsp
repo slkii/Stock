@@ -98,6 +98,7 @@
 			</main>
 			<!-- Main page content-->
 
+
 			<div id="layoutSidenav_content">
 				<main>
 					<!-- Join page-->
