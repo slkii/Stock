@@ -42,6 +42,15 @@
 	<%
 	//세션 값 가져옴 loginM 키 값이 지정되어 있는 세션 값  56번 로그인 판단기준.
 	MemberVO loginM = (MemberVO) session.getAttribute("loginM");
+	Class.forName("com.mysql.jdbc.Driver");
+	String dbUrl = "jdbc:mysql://project-db-stu.ddns.net:3307/smhrd_e_3?serverTimezone=UTC";
+	String dbUser = "smhrd_e_3";
+	String dbPass = "smhrde3";
+	Connection con = DriverManager.getConnection
+	      (dbUrl, dbUser, dbPass);
+	String sql = "select * from NEWS order by idx DESC;";
+	PreparedStatement pstmt = con.prepareStatement(sql);
+	ResultSet rs = pstmt.executeQuery(sql);
 	%>
 	<nav
 		class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white"
@@ -183,21 +192,10 @@
 								<div class="card-header">뉴스뉴스뉴스</div>
 								<div class="card-body">
 									<%
-									Class.forName("com.mysql.jdbc.Driver");
-									String dbUrl = "jdbc:mysql://project-db-stu.ddns.net:3307/smhrd_e_3?serverTimezone=UTC";
-									String dbUser = "smhrd_e_3";
-									String dbPass = "smhrde3";
-									Connection con = DriverManager.getConnection
-									      (dbUrl, dbUser, dbPass);
-									String sql = "select * from NEWS order by idx DESC;";
-									PreparedStatement pstmt = con.prepareStatement(sql);
-									ResultSet rs = pstmt.executeQuery(sql);
-									%>
-									<%
 									while (rs.next()) {
 									%>
 										<div style="border-color: black; border-style: solid; border-width: 1.5px;">
-											<div style="font-size: 20px; font-weight: 800; color:black; background: yellow; width: 100%;"><%=rs.getString("title")%></div>
+											<div style="font-size: 20px; font-weight: 800; color:black; background: lightyellow; width: 100%;"><%=rs.getString("title")%></div>
 											<div style="color:black; width: 100%;"><%=rs.getString("sentiment")%></div>
 											<div style="color:black; background: lightblue; width: 100%;"><%=rs.getString("summary")%></div>
 											<div style="font-size: 10px; background: lightgreen; width: 100%; text-align: right;"> 출처 : <a href="<%=rs.getString("source")%>"> <%=rs.getString("source")%></a>></div>
@@ -205,6 +203,7 @@
 									<%
 									}
 										%>
+										
 								</div>
 							</div>
 						</div>
@@ -225,6 +224,11 @@
 			</footer>
 		</div>
 	</div>
+	<script type="text/javascript">
+		setTimeout(function() {
+	        location.reload();
+	    }, 10000);
+	</script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
