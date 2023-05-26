@@ -21,6 +21,7 @@
 	crossorigin="anonymous"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 </head>
 <body>
 
@@ -92,79 +93,77 @@
 			</main>
 			<!-- Main page content-->
 
-			<div id="layoutSidenav_content">
-				<main>
-					<!-- Join page-->
-					<div class="container-xl px-4">
-						<div class="card mb-4">
-							<div class="card-header">게시물 등록</div>
-
-							<form id="form1" name="form1" action="Service_register_service"
-								method="post">
-								<table border="1">
-									<tr>
-										<td id="td">제목</td>
-										<td colspan="2"><input type="text" id="service_title"
-											name="service_title"></td>
-									</tr>
-									<!-- <label for="desc">내용:</label>  -->
-									<tr>
-										<td id="td">내용</td>
-										<td colspan="2"><textarea id="service_desc" name="service_desc"></textarea></td>
-									</tr>
-
-									<tr>
-										<td colspan="3">
-											<div class="button" style="text-align: center">
-												<input type="submit" value="등록" id="btn-submit">
-											</div>
-										</td>
-									</tr>
-								</table>
-							</form>
-							
-						</div>
-					</div>
-					</div>
-				</main>
-			
-			<footer class="footer-admin mt-auto footer-light">
-				<div class="container-xl px-4">
-					<div class="row">
-						<div class="col-md-6 small">Copyright &copy; Your Website
-							2021</div>
-						<div class="col-md-6 text-md-end small">
-							<a href="#!">Privacy Policy</a> &middot; <a href="#!">Terms
-								&amp; Conditions</a>
-						</div>
-					</div>
+			<div class="container">
+				<div class="row">
+					<form method="post" action=""">
+						<table class="table"
+							style="text-align: center; border: 1px solid #dddddd;">
+							<thead>
+								<tr>
+									<th colspan="2"
+										style="background-color: #eeeeee; text-align: center;">게시판
+										글쓰기</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="text" class="form-control"
+										placeholder="글 제목" name="boardTitle" maxlength="50"
+										></td>
+								</tr>
+								<tr>
+									<td><textarea class="form-control" placeholder="글 내용"
+											name="boardContent" maxlength="3000" style="height: 350px"></textarea>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<button type="submit" class="btn btn-primary">저장</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
 				</div>
-			</footer>
+			</div>
+
+			<div id="layoutSidenav_content">
+				<footer class="footer-admin mt-auto footer-light">
+					<div class="container-xl px-4">
+						<div class="row">
+							<div class="col-md-6 small">Copyright &copy; Your Website
+								2021</div>
+							<div class="col-md-6 text-md-end small">
+								<a href="#!">Privacy Policy</a> &middot; <a href="#!">Terms
+									&amp; Conditions</a>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
 		</div>
-	</div>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		crossorigin="anonymous"></script>
-	<script src="js/scripts.js"></script>
-	<script>
-		$(document).ready(function() {
-			$('#btn-submit').prop('disabled', true);
-			$('input').keyup(function() {
-				var empty = false;
-				$('input').each(function() {
-					if ($(this).val() === '') {
-						empty = true;
-						return false;
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+			crossorigin="anonymous"></script>
+		<script src="js/scripts.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('#btn-submit').prop('disabled', true);
+				$('input').keyup(function() {
+					var empty = false;
+					$('input').each(function() {
+						if ($(this).val() === '') {
+							empty = true;
+							return false;
+						}
+					});
+					if (empty) {
+						$('#btn-submit').prop('disabled', true);
+					} else {
+						$('#btn-submit').prop('disabled', false);
 					}
 				});
-				if (empty) {
-					$('#btn-submit').prop('disabled', true);
-				} else {
-					$('#btn-submit').prop('disabled', false);
-				}
 			});
-		});
-	</script>
-
+		</script>
 </body>
 </html>
