@@ -252,9 +252,11 @@
 								if (loginM == null) {
 									while (rs.next()) {
 								%>
+								<%-- onclick="location.href='Board_content.jsp?board_seq=<%=bvo.getBoard_seq()%>&group_name=<%=vo.getGroup_name()%>';"> --%>
+								
 								<tr>
 									<td><%=rs.getString("number")%></td>
-									<td scope='row'><a href="https://www.naver.com/" class="link"></a><%=rs.getString("title")%></td>
+									<td scope='row'><%=rs.getString("title")%></td>
 									<td><%=rs.getString("c_date")%></td>
 									<td><%=rs.getString("nick")%></td>
 								</tr>

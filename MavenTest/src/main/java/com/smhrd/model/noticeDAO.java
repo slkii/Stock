@@ -18,8 +18,6 @@ public class noticeDAO {
 	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
 	// noticeList 붑러오기
-	
-
 	public List<noticeVO> boardList(noticeVO novo) {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		List<noticeVO> boardList = session.selectList("list");
@@ -28,6 +26,13 @@ public class noticeDAO {
 	}
 	
 	// 글 내용 보기 
+	public List<noticeVO> boardNotice(String number){
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<noticeVO> boardNotice = session.selectOne(number);
+		session.close();
+		return boardNotice;
+	
+	}
 	
 	}
 
