@@ -29,10 +29,6 @@
 	margin-bottom: 10px !important;
 }
 
-#layoutSidenav #layoutSidenav_content {
-	
-}
-
 .g-3, .gx-3 { -
 	-bs-gutter-x: -6rem;
 }
@@ -102,14 +98,13 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<header class="py-10 mb-4 bg-gradient-primary-to-secondary">
-					<div class="container-xl px-4">
-						<div class="text-center"></div>
+					<div class="container-xl px-4">					
 					</div>
 				</header>
 				<!-- Main page content-->
 			</main>
 			<!-- Main page content-->
-
+		<div id="layoutSidenav_content">
 			<div class="container">
 				<div class="row" id="form">
 					<form method="post" action="formService">
@@ -141,10 +136,23 @@
 						</table>
 					</form>
 				</div>
-			</div>
-
-			
+				</div>
 		
+			</div>
+		<footer class="footer-admin mt-auto footer-light">
+				<div class="container-xl px-4">
+					<div class="row">
+						<div class="col-md-6 small">Copyright &copy; Your Website
+							2021</div>
+						<div class="col-md-6 text-md-end small">
+							<a href="#!">Privacy Policy</a> &middot; <a href="#!">Terms
+								&amp; Conditions</a>
+						</div>
+					</div>
+				</div>
+			</footer>
+			
+		</div>
 		</div>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

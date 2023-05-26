@@ -58,25 +58,55 @@
 			id="sidebarToggle">
 			<i data-feather="menu"></i>
 		</button>
-		<!-- Navbar Brand-->
-		<!-- * * Tip * * You can use text or an image for your navbar brand.-->
-		<!-- * * * * * * When using an image, we recommend the SVG format.-->
-		<!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
-		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="index.html">
-			Stock's talk</a>
+		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="main.jsp">
+		Stock's talk</a>
 
 		<!-- Navbar Items-->
 		<ul class="navbar-nav align-items-center ms-auto">
 
 			<!-- User Dropdown-->
 
+
+			<!-- 로그인x  -->
+			<%
+			if (loginM == null) {
+			%>
 			<li class="nav-item dropdown no-caret dropdown-user me-3 me-lg-4">
 				<a class="btn btn-icon btn-transparent-dark dropdown-toggle"
-				id="navbarDropdownUserImage" href="Join.jsp" aria-expanded="false"><img
+				id="navbarDropdownUserImage" href="Login.jsp" aria-expanded="false"><img
 					class="img-fluid" src="assets/img/demo/user-placeholder.svg" /></a>
 			</li>
+			<%
+			} else {
+			%>
+			<!-- 로그인 o -->
+			<li class="nav-item dropdown no-caret dropdown-user me-3 me-lg-4">
+				<a class="btn btn-icon btn-transparent-dark dropdown-toggle"
+				id="navbarDropdownUserImage" href="javascript:void(0);"
+				role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"><img class="img-fluid"
+					src="assets/img/illustrations/profiles/profile-1.png" /></a>
+				<div
+					class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up"
+					aria-labelledby="navbarDropdownUserImage">
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="MypageEdit.jsp">
+						<div class="dropdown-item-icon">
+							<idata-feather="settings" > </i>
+						</div> MyPage
+					</a> <a class="dropdown-item" href="Logout">
+						<div class="dropdown-item-icon">
+							<i data-feather="log-out"></i>
+						</div> Logout
+					</a>
+				</div>
+			</li>
+			<%
+			}
+			%>
 		</ul>
 	</nav>
+	<!-- User Dropdown end -->
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav">
 			<nav class="sidenav shadow-right sidenav-light">
@@ -98,9 +128,13 @@
 							aria-expanded="false" aria-controls="collapseApps">
 							<div class="nav-link-icon">
 								<i data-feather="globe"></i>
-							</div> NEWS 2 <!--  <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>  사이드바 드롭다운 -->
+							</div> NEWS 2
+
 						</a>
-						<%if(loginM!=null) {%>
+						<!-- Sidenav Accordion (My Page)-->
+						<%
+						if (loginM != null) {
+						%>
 						<a class="nav-link collapsed" href="javascript:void(0);"
 							data-bs-toggle="collapse" data-bs-target="#collapseUtilities"
 							aria-expanded="false" aria-controls="collapseUtilities">
@@ -114,23 +148,27 @@
 						<div class="collapse" id="collapseUtilities"
 							data-bs-parent="#accordionSidenav">
 							<nav class="sidenav-menu-nested nav">
-								<a class="nav-link" href="animations.html">내정보수정</a> <a
-									class="nav-link" href="background.html">관심기업</a>
+								<a class="nav-link" href="MypageEdit.jsp">내정보수정</a> <a
+									class="nav-link" href="form.jsp">게시물등록</a> <a class="nav-link"
+									href="background.html">관심기업</a>
 							</nav>
 						</div>
-						 <%} %>
+						<%
+						}
+						%>
 					</div>
 				</div>
-
 			</nav>
 		</div>
+	</div>
+
 
 		<div id="layoutSidenav_content">
 			<main>
 				<header class="py-10 mb-4 bg-gradient-primary-to-secondary">
 					<div class="container-xl px-4">
 						<div class="text-center">
-							<h1 class="text-white">Stock's talk</h1>	
+							
 						</div>
 					</div>
 				</header>
@@ -160,11 +198,12 @@
 												placeholder="Enter your Email" value="" />
 										</div>
 									</div>
+									
 									<!-- Form Group (name)-->
 									<div class="row gx-3 mb-3">
 										<div class="mb-3">
 											<label class="small mb-1" for="inputEmailAddress">name</label>
-											<input name="pw" class="form-control" id="inputEmailAddress"
+											<input name="nick" class="form-control" id="inputEmailAddress"
 												type="text" placeholder="Enter your Name" value="" />
 										</div>
 									</div>

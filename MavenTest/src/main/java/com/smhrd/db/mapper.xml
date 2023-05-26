@@ -15,13 +15,16 @@
 	</select>
 
 	<update id="update" parameterType="com.smhrd.model.MemberVO">
-		update user set pw=#{pw},
-		tel=#{tel}, addr=#{addr} where email=#{email}
+		update user set pw=#{pw},nick =#{nick},tel=#{tel}, addr=#{addr} where email=#{email}
 	</update>
 	
 	<insert id="form" parameterType="com.smhrd.model.formVO">
 		insert into kikidb (title ,content) values(#{title},#{content})
 	</insert>
 
-
+<!-- 게시물 불러오기  -->
+	<select id="selectPost" resultType="com.smhrd.model.formVO">
+		select * from tbl_service3 where service_seq = #{seq}
+	</select>
+	
 </mapper>

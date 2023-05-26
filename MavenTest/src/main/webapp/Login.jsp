@@ -41,7 +41,7 @@
 }
 .layoutSidenav_content::after {
   width: 100%;
-  height: 100%;s
+  height: 100%;
   content: "";
   background:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
 }
@@ -51,7 +51,6 @@
 
 <body class="nav-fixed">
 	<%
-	//세션 값 가져옴 loginM 키 값이 지정되어 있는 세션 값  56번 로그인 판단기준.
 	MemberVO loginM = (MemberVO) session.getAttribute("loginM");
 	%>
 	<nav
@@ -170,8 +169,7 @@
 			</footer>
 		</div>
 	</div>
-		</div>
-	</div>
+	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>

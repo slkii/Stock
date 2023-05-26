@@ -20,39 +20,41 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
 	crossorigin="anonymous"></script>
 <style type="text/css">
-.row > * {
-    flex-shrink: 3;
-    width: 100%;
-    max-width: 100%;
-    padding-top: calc(var(--bs-gutter-x) * 0.5);;
-    padding-right: calc(var(--bs-gutter-x) * 0.5);
-    padding-left: calc(var(--bs-gutter-x) * 10);
-    margin-top: var(--bs-gutter-y);
+.row>* {
+	flex-shrink: 3;
+	width: 100%;
+	max-width: 100%;
+	padding-top: calc(var(- -bs-gutter-x)* 0.5);;
+	padding-right: calc(var(- -bs-gutter-x)* 0.5);
+	padding-left: calc(var(- -bs-gutter-x)* );
+	margin-top: var(- -bs-gutter-y);
 }
+
 .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: max-content;
+	max-width: max-content;
 }
+
 .mb-3 {
-    margin-bottom: 10px!important;
+	margin-bottom: 10px !important;
 }
 
-.g-3, .gx-3 {
-    --bs-gutter-x: -6rem;
+.g-3, .gx-3 { -
+	-bs-gutter-x: -6rem;
 }
+
 .layoutSidenav_content {
-  width: 100%;
-  height: 100%;
-  text-align: center;
+	width: 100%;
+	height: 100%;
+	text-align: center;
 }
-.layoutSidenav_content::after {
-  width: 100%;
-  height: 100%;s
-  content: "";
-  background:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+
+.maindiv {
+    padding-left: 20%;
+    padding-right: 10%;
 }
-</style>
 
 </style>
+
 </head>
 
 <body class="nav-fixed">
@@ -69,12 +71,8 @@
 			id="sidebarToggle">
 			<i data-feather="menu"></i>
 		</button>
-		<!-- Navbar Brand-->
-		<!-- * * Tip * * You can use text or an image for your navbar brand.-->
-		<!-- * * * * * * When using an image, we recommend the SVG format.-->
-		<!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
-		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="main.jsp">Stock's
-			talk</a>
+		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="main.jsp">
+		Stock's talk</a>
 
 		<!-- Navbar Items-->
 		<ul class="navbar-nav align-items-center ms-auto">
@@ -107,8 +105,7 @@
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="MypageEdit.jsp">
 						<div class="dropdown-item-icon">
-							<idata-feather="settings" >
-							</i>
+							<idata-feather="settings" > </i>
 						</div> MyPage
 					</a> <a class="dropdown-item" href="Logout">
 						<div class="dropdown-item-icon">
@@ -145,7 +142,6 @@
 							<div class="nav-link-icon">
 								<i data-feather="globe"></i>
 							</div> NEWS 2
-							
 						</a>
 						<!-- Sidenav Accordion (My Page)-->
 						<%
@@ -164,9 +160,9 @@
 						<div class="collapse" id="collapseUtilities"
 							data-bs-parent="#accordionSidenav">
 							<nav class="sidenav-menu-nested nav">
-								<a class="nav-link" href="MypageEdit.jsp">내정보수정</a>
-								<a class="nav-link" href="form.jsp">게시물등록</a> 
-								<a class="nav-link" href="background.html">관심기업</a>
+								<a class="nav-link" href="MypageEdit.jsp">내정보수정</a> <a
+									class="nav-link" href="form.jsp">게시물등록</a> <a class="nav-link"
+									href="background.html">관심기업</a>
 							</nav>
 						</div>
 						<%
@@ -175,77 +171,75 @@
 					</div>
 				</div>
 			</nav>
-			</div>
-		</div>
-		
-		<div id="layoutSidenav_content">
-			<main>
-				<header class="py-10 mb-4 bg-gradient-primary-to-secondary">
-					<div class="container">
-						<div class="text-center">
-							<h1 class="text-white">MAIN</h1>
-							<p class="lead mb-0 text-white-50">로그인 후 이용해 주세요.</p>
-						</div>
-					</div>
-				</header>
-			</main>
-			<!-- Main page content-->
-				<div class="container">
-					<div class="row" style="align-items: center;">
-						<!-- Example DataTable for Dashboard Demo-->				
-						<div class="timeline-item">
-							<div class="card mb-4">
-								<div class="card-header">뉴스뉴스뉴스</div>
-								<div class="card-body">
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</main>
-			<footer class="footer-admin mt-auto footer-light">
-				<div class="container-xl px-4">
-					<div class="row">
-						<div class="col-md-6 small">Copyright &copy; Your Website
-							2021</div>
-						<div class="col-md-6 text-md-end small">
-							<a href="#!">Privacy Policy</a> &middot; <a href="#!">Terms
-								&amp; Conditions</a>
-						</div>
-					</div>
-				</div>
-			</footer>
 		</div>
 	</div>
+
+	<div id="layoutSidenav_content">
+		<main>
+			<header class="py-10 mb-4 bg-gradient-primary-to-secondary">
+				<div class="container">
+					<div class="text-center">
+						<h1 class="text-white">MAIN</h1>
+						<%if (loginM == null) {%>
+						<p class="lead mb-0 text-white-50">로그인 후 이용해 주세요.</p>
+						<%
+						}
+						%>
+					</div>
+				</div>
+			</header>
+		</main>
+		<!-- Main page content-->
+		<div class="maindiv" >
+		<div id="layoutSidenav_content">
+		<div class="container">
+			<div class="row" style="align-items: center;">
+				<!-- Example DataTable for Dashboard Demo-->
+				<div class="timeline-item">
+					<div class="card mb-4">
+						<div class="card-header">뉴스뉴스뉴스</div>
+						<div class="card-body">
+							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
+							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
+							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
+							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
+							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
+							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
+							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
+							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
+							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+							<!-- 여기에 쓰ㄱ시요오오오  -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+		
+		<footer class="footer-admin mt-auto footer-light">
+		
+		</footer>
+	</div>
+</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>

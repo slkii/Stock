@@ -61,5 +61,14 @@ public class MemberVO {
 		this.email = email;
 		this.pw = pw;
 	}
+	public MemberVO(String nick, String pw, String tel, String addr) {
+		super();
+		this.nick = nick;
+		this.pw = pw;
+		this.tel = tel;
+		this.addr = addr;
+	}
+	
+	
 	
 }
