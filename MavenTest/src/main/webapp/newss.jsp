@@ -189,7 +189,7 @@
 									String dbPass = "smhrde3";
 									Connection con = DriverManager.getConnection
 									      (dbUrl, dbUser, dbPass);
-									String sql = "select * from NEWS;";
+									String sql = "select * from NEWS order by idx DESC;";
 									PreparedStatement pstmt = con.prepareStatement(sql);
 									ResultSet rs = pstmt.executeQuery(sql);
 									%>
