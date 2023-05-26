@@ -1,3 +1,7 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="com.smhrd.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -178,35 +182,29 @@
 							<div class="card mb-4">
 								<div class="card-header">뉴스뉴스뉴스</div>
 								<div class="card-body">
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
-									<!-- 여기에 쓰ㄱ시요오오오  -->
+									<%
+									Class.forName("com.mysql.jdbc.Driver");
+									String dbUrl = "jdbc:mysql://project-db-stu.ddns.net:3307/smhrd_e_3?serverTimezone=UTC";
+									String dbUser = "smhrd_e_3";
+									String dbPass = "smhrde3";
+									Connection con = DriverManager.getConnection
+									      (dbUrl, dbUser, dbPass);
+									String sql = "select * from NEWS;";
+									PreparedStatement pstmt = con.prepareStatement(sql);
+									ResultSet rs = pstmt.executeQuery(sql);
+									%>
+									<%
+									while (rs.next()) {
+									%>
+										<div style="border-color: black; border-style: solid; border-width: 1.5px;">
+											<div style="font-size: 20px; font-weight: 800; color:black; background: yellow; width: 100%;"><%=rs.getString("title")%></div>
+											<div style="color:black; width: 100%;"><%=rs.getString("sentiment")%></div>
+											<div style="color:black; background: lightblue; width: 100%;"><%=rs.getString("summary")%></div>
+											<div style="background: lightgreen; width: 100%; text-align: right;"> 출처 : <a href="<%=rs.getString("source")%>"> <%=rs.getString("source")%></a>></div>
+										</div>
+									<%
+									}
+										%>
 								</div>
 							</div>
 						</div>
