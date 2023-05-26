@@ -200,7 +200,7 @@
 											<div style="font-size: 20px; font-weight: 800; color:black; background: yellow; width: 100%;"><%=rs.getString("title")%></div>
 											<div style="color:black; width: 100%;"><%=rs.getString("sentiment")%></div>
 											<div style="color:black; background: lightblue; width: 100%;"><%=rs.getString("summary")%></div>
-											<div style="background: lightgreen; width: 100%; text-align: right;"> 출처 : <a href="<%=rs.getString("source")%>"> <%=rs.getString("source")%></a>></div>
+											<div style="font-size: 10px; background: lightgreen; width: 100%; text-align: right;"> 출처 : <a href="<%=rs.getString("source")%>"> <%=rs.getString("source")%></a>></div>
 										</div>
 									<%
 									}
