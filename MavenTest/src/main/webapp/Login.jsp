@@ -21,6 +21,31 @@
 	crossorigin="anonymous"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<style type="text/css">
+.container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: max-content;
+}
+.mb-3 {
+    margin-bottom: 10px!important;
+}
+#layoutSidenav #layoutSidenav_content{
+
+}
+.g-3, .gx-3 {
+    --bs-gutter-x: -6rem;
+}
+.layoutSidenav_content {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.layoutSidenav_content::after {
+  width: 100%;
+  height: 100%;s
+  content: "";
+  background:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+}
+</style>
 </head>
 
 
@@ -42,7 +67,7 @@
 		<!-- * * Tip * * You can use text or an image for your navbar brand.-->
 		<!-- * * * * * * When using an image, we recommend the SVG format.-->
 		<!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
-		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="index.html">
+		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="main.jsp">
 			Stock's talk</a>
 
 		<!-- Navbar Items-->
@@ -88,7 +113,7 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<header class="py-10 mb-4 bg-gradient-primary-to-secondary">
-					<div class="container-xl px-4">
+					<div class="container">
 						<div class="text-center">
 							<h1 class="text-white">Login</h1>
 							<p class="lead mb-0 text-white-50">로그인 후 이용해 주세요.</p>
@@ -100,10 +125,11 @@
 
 			<div id="layoutSidenav_content">
 				<main>
-					<!-- Join page-->
-					<div class="container-xl px-4">
+					<!-- Login page-->
+					<div class="container">
+						<div class="row">
 						<div class="card mb-4">
-							<div class="card-header">LOGIN</div>
+							<div class="card-header" style="text-align: center;">LOGIN</div>
 							<div class="card-body">
 								<form action="LoginService" method="post">
 									<!-- Form Row-->
@@ -125,29 +151,25 @@
 										</div>
 									</div>
 									<!-- Submit button-->
+									<div align="center">
 									<button class="btn btn-primary" type="submit" id="btn-submit">Login</button>
+									</div>
 								</form>
-								<div style="margin-top: 10px">
+								<div align="center"; style="margin-top:10px" >
 									<a href="Join.jsp"><button class="btn btn-primary">Join
 											Up</button></a>
 								</div>
 							</div>
 						</div>
 					</div>
+					</div>
 				</main>
 			</div>
 			<footer class="footer-admin mt-auto footer-light">
-				<div class="container-xl px-4t">
-					<div class="row">
-						<div class="col-md-6 small">Copyright &copy; Your Website
-							2021</div>
-						<div class="col-md-6 text-md-end small">
-							<a href="#!">Privacy Policy</a> &middot; <a href="#!">Terms
-								&amp; Conditions</a>
-						</div>
-					</div>
-				</div>
+
 			</footer>
+		</div>
+	</div>
 		</div>
 	</div>
 	<script
@@ -164,7 +186,7 @@
 						empty = true;
 						return false;
 					}
-				});
+				});	
 				if (empty) {
 					$('#btn-submit').prop('disabled', true);
 				} else {

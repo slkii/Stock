@@ -21,6 +21,26 @@
 	crossorigin="anonymous"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<style type="text/css">
+.container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: max-content;
+}
+.mb-3 {
+    margin-bottom: 10px!important;
+}
+#layoutSidenav #layoutSidenav_content{
+
+}
+.g-3, .gx-3 {
+    --bs-gutter-x: -6rem;
+}
+.layoutSidenav_content {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+</style>
 </head>
 
 
@@ -117,10 +137,14 @@
 				<!-- Main page content-->
 			</main>
 			<!-- Main page content-->
+			
+			
+			
 			<div id="layoutSidenav_content">
 				<main>
 					<!-- Join page-->
-					<div class="container-xl px-4">
+				<div class="container">
+						<div class="row">
 						<div class="card mb-4">
 							<div class="card-header">회원정보수정</div>
 							<div class="card-body">
@@ -171,11 +195,14 @@
 										</div>
 									</div>
 									<!-- Submit button-->
+									<div align="center">
 									<button class="btn btn-primary" type="submit" id="btn-submit">Edit</button>
 									<button class="btn btn-primary" type="reset">reset</button>
+									</div>
 								</form>
 							</div>
 						</div>
+					</div>
 					</div>
 				</main>
 			</div>

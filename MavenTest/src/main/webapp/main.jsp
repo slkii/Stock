@@ -26,10 +26,31 @@
     max-width: 100%;
     padding-top: calc(var(--bs-gutter-x) * 0.5);;
     padding-right: calc(var(--bs-gutter-x) * 0.5);
-    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 10);
     margin-top: var(--bs-gutter-y);
 }
+.container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: max-content;
+}
+.mb-3 {
+    margin-bottom: 10px!important;
+}
 
+.g-3, .gx-3 {
+    --bs-gutter-x: -6rem;
+}
+.layoutSidenav_content {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.layoutSidenav_content::after {
+  width: 100%;
+  height: 100%;s
+  content: "";
+  background:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+}
+</style>
 
 </style>
 </head>
@@ -110,7 +131,7 @@
 						<!-- Sidenav Menu Heading (Core)-->
 						<div class="sidenav-menu-heading">MENU</div>
 						<!-- Sidenav Accordion (NEWS1)-->
-						<a class="nav-link collapsed" href="main.jsp"
+						<a class="nav-link collapsed" href="javascript:void(0);"
 							data-bs-toggle="collapse" data-bs-target="#collapseDashboards"
 							aria-expanded="false" aria-controls="collapseDashboards">
 							<div class="nav-link-icon">
@@ -123,7 +144,11 @@
 							aria-expanded="false" aria-controls="collapseApps">
 							<div class="nav-link-icon">
 								<i data-feather="globe"></i>
-							</div> NEWS 2 <!--  <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>  사이드바 드롭다운 -->
+							</div> NEWS 2
+							  <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i>			
+								<a class="nav-link" href="MypageEdit.jsp">내정보수정</a> 
+								<a class="nav-link" href="background.html">관심기업</a>
+							  </div>
 						</a>
 						<!-- Sidenav Accordion (My Page)-->
 						<%
@@ -151,28 +176,24 @@
 						%>
 					</div>
 				</div>
-
 			</nav>
+			</div>
 		</div>
+		
 		<div id="layoutSidenav_content">
 			<main>
-				<header
-					class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
-					<div class="container-xl px-4">
-						<div class="page-header-content pt-4">
-							<div class="row align-items-center justify-content-between">
-								<div class="col-auto mt-4">
-									<h1 class="page-header-title">
-										<div class="page-header-icon">MAIN!!!!!!!!!!!!!!!!!!!!</div>
-									</h1>
-								</div>
-							</div>
+				<header class="py-10 mb-4 bg-gradient-primary-to-secondary">
+					<div class="container">
+						<div class="text-center">
+							<h1 class="text-white">MAIN</h1>
+							<p class="lead mb-0 text-white-50">로그인 후 이용해 주세요.</p>
 						</div>
 					</div>
 				</header>
-				<!-- Main page content-->
+			</main>
+			<!-- Main page content-->
 				<div class="container">
-					<div class="row">
+					<div class="row" style="align-items: center;">
 						<!-- Example DataTable for Dashboard Demo-->				
 						<div class="timeline-item">
 							<div class="card mb-4">

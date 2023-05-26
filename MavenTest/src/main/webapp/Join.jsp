@@ -21,6 +21,26 @@
 	crossorigin="anonymous"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<style type="text/css">
+.container-xl, .container-lg, .container-md, .container-sm, .container {
+    max-width: max-content;
+}
+.mb-3 {
+    margin-bottom: 10px!important;
+}
+#layoutSidenav #layoutSidenav_content{
+
+}
+.g-3, .gx-3 {
+    --bs-gutter-x: -6rem;
+}
+.layoutSidenav_content {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+</style>
 </head>
 
 
@@ -87,24 +107,24 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<header class="py-10 mb-4 bg-gradient-primary-to-secondary">
-					<div class="container-xl px-4">
+					<div class="container">
 						<div class="text-center">
-							<h1 class="text-white">JOIN</h1>
+							<h1 class="text-white">JOIN-UP</h1>
 							<p class="lead mb-0 text-white-50">회원가입 후 이용해 주세요.</p>
 						</div>
 					</div>
 				</header>
-				<!-- Main page content-->
 			</main>
 			<!-- Main page content-->
 
 
 			<div id="layoutSidenav_content">
 				<main>
-					<!-- Join page-->
-					<div class="container-xl px-4">
+					<!--  page-->
+				<div class="container">
+						<div class="row">
 						<div class="card mb-4">
-							<div class="card-header">Sign-UP</div>
+							<div class="card-header">Join-UP</div>
 							<div class="card-body">
 								<form action="JoinService" method="post">
 									<!-- Form Row-->
@@ -147,15 +167,18 @@
 										<div class="mb-3">
 											<label class="small mb-1" for="inputEmailAddress">address</label>
 											<input name="addr" class="form-control" type="text"
-												placeholder="Enter your Address" value="" />
+												placeholder="Enter your Address" value=""/>
 										</div>
 									</div>
+									<div align="center">
 									<!-- Submit button-->
 									<button class="btn btn-primary" type="submit" id="btn-submit">join</button>
 									<button class="btn btn-primary" type="reset">reset</button>
+									</div>
 								</form>
 							</div>
 						</div>
+					</div>
 					</div>
 				</main>
 			</div>

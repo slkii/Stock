@@ -21,7 +21,28 @@
 	crossorigin="anonymous"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<style type="text/css">
+.container-xl, .container-lg, .container-md, .container-sm, .container {
+	max-width: max-content;
+}
 
+.mb-3 {
+	margin-bottom: 10px !important;
+}
+
+#layoutSidenav #layoutSidenav_content {
+	
+}
+
+.g-3, .gx-3 { -
+	-bs-gutter-x: -6rem;
+}
+
+#form {
+	width: 800px;
+	height: 500px;
+}
+</style>
 </head>
 <body>
 
@@ -38,7 +59,7 @@
 		<!-- * * Tip * * You can use text or an image for your navbar brand.-->
 		<!-- * * * * * * When using an image, we recommend the SVG format.-->
 		<!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
-		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="index.html">
+		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="main.jsp">
 			Stock's talk</a>
 
 		<!-- Navbar Items-->
@@ -94,8 +115,8 @@
 			<!-- Main page content-->
 
 			<div class="container">
-				<div class="row">
-					<form method="post" action=""">
+				<div class="row" id="form">
+					<form method="post" action="">
 						<table class="table"
 							style="text-align: center; border: 1px solid #dddddd;">
 							<thead>
@@ -108,8 +129,7 @@
 							<tbody>
 								<tr>
 									<td><input type="text" class="form-control"
-										placeholder="글 제목" name="boardTitle" maxlength="50"
-										></td>
+										placeholder="글 제목" name="boardTitle" maxlength="50"></td>
 								</tr>
 								<tr>
 									<td><textarea class="form-control" placeholder="글 내용"
