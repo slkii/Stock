@@ -18,6 +18,10 @@
 		update user set pw=#{pw},
 		tel=#{tel}, addr=#{addr} where email=#{email}
 	</update>
+	
+	<insert id="form" parameterType="com.smhrd.model.formVO">
+		insert into kikidb (title ,content) values(#{title},#{content})
+	</insert>
 
 
 </mapper>

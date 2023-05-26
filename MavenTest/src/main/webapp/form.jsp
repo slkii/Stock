@@ -19,8 +19,7 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
 	crossorigin="anonymous"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	
 <style type="text/css">
 .container-xl, .container-lg, .container-md, .container-sm, .container {
 	max-width: max-content;
@@ -55,10 +54,7 @@
 			id="sidebarToggle">
 			<i data-feather="menu"></i>
 		</button>
-		<!-- Navbar Brand-->
-		<!-- * * Tip * * You can use text or an image for your navbar brand.-->
-		<!-- * * * * * * When using an image, we recommend the SVG format.-->
-		<!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
+		
 		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="main.jsp">
 			Stock's talk</a>
 
@@ -116,7 +112,7 @@
 
 			<div class="container">
 				<div class="row" id="form">
-					<form method="post" action="">
+					<form method="post" action="formService">
 						<table class="table"
 							style="text-align: center; border: 1px solid #dddddd;">
 							<thead>
@@ -129,10 +125,10 @@
 							<tbody>
 								<tr>
 									<td><input type="text" class="form-control"
-										placeholder="글 제목" name="boardTitle" maxlength="50"></td>
+										placeholder="글 제목" name="title" maxlength="50"></td>
 								</tr>
 								<tr>
-									<td><textarea class="form-control" placeholder="글 내용"
+									<td><textarea class="form-control" placeholder="글 내용" id="content"
 											name="boardContent" maxlength="3000" style="height: 350px"></textarea>
 									</td>
 								</tr>
@@ -147,43 +143,12 @@
 				</div>
 			</div>
 
-			<div id="layoutSidenav_content">
-				<footer class="footer-admin mt-auto footer-light">
-					<div class="container-xl px-4">
-						<div class="row">
-							<div class="col-md-6 small">Copyright &copy; Your Website
-								2021</div>
-							<div class="col-md-6 text-md-end small">
-								<a href="#!">Privacy Policy</a> &middot; <a href="#!">Terms
-									&amp; Conditions</a>
-							</div>
-						</div>
-					</div>
-				</footer>
-			</div>
+			
+		
 		</div>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 			crossorigin="anonymous"></script>
 		<script src="js/scripts.js"></script>
-		<script>
-			$(document).ready(function() {
-				$('#btn-submit').prop('disabled', true);
-				$('input').keyup(function() {
-					var empty = false;
-					$('input').each(function() {
-						if ($(this).val() === '') {
-							empty = true;
-							return false;
-						}
-					});
-					if (empty) {
-						$('#btn-submit').prop('disabled', true);
-					} else {
-						$('#btn-submit').prop('disabled', false);
-					}
-				});
-			});
-		</script>
 </body>
 </html>

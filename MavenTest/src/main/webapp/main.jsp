@@ -145,10 +145,7 @@
 							<div class="nav-link-icon">
 								<i data-feather="globe"></i>
 							</div> NEWS 2
-							  <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i>			
-								<a class="nav-link" href="MypageEdit.jsp">내정보수정</a> 
-								<a class="nav-link" href="background.html">관심기업</a>
-							  </div>
+							
 						</a>
 						<!-- Sidenav Accordion (My Page)-->
 						<%
@@ -167,8 +164,9 @@
 						<div class="collapse" id="collapseUtilities"
 							data-bs-parent="#accordionSidenav">
 							<nav class="sidenav-menu-nested nav">
-								<a class="nav-link" href="MypageEdit.jsp">내정보수정</a> <a
-									class="nav-link" href="background.html">관심기업</a>
+								<a class="nav-link" href="MypageEdit.jsp">내정보수정</a>
+								<a class="nav-link" href="form.jsp">게시물등록</a> 
+								<a class="nav-link" href="background.html">관심기업</a>
 							</nav>
 						</div>
 						<%

@@ -28,6 +28,12 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.Logout</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>formService</servlet-name>
+  	<display-name>formService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.formService</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinService</servlet-name>
   	<url-pattern>/JoinService</url-pattern>
@@ -43,5 +49,9 @@
   <servlet-mapping>
   	<servlet-name>Logout</servlet-name>
   	<url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>formService</servlet-name>
+  	<url-pattern>/formService</url-pattern>
   </servlet-mapping>
 </web-app>
