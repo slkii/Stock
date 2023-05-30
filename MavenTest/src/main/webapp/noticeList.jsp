@@ -201,6 +201,7 @@
 									<tr>
 										<th>글번호</th>
 										<th>제목</th>
+										<th>글내용</th>
 										<th>작성일</th>
 										<th>작성자</th>
 									</tr>
@@ -256,7 +257,8 @@
 								
 								<tr>
 									<td><%=rs.getString("number")%></td>
-									<td scope='row'><%=rs.getString("title")%></td>
+									<td><a href="noticeBoard.jsp?number=<%=rs.getString("number")%>"><%=rs.getString("title")%></a></td>
+									<td><%=rs.getString("content")%></td>
 									<td><%=rs.getString("c_date")%></td>
 									<td><%=rs.getString("nick")%></td>
 								</tr>
@@ -267,7 +269,8 @@
 								%>
 								<tr>
 									<td><%=rs.getString("number")%></td>
-									<td scope='row'><a href="https://www.naver.com/" class="link"></a><%=rs.getString("title")%></td>
+									<td><a href="noticeBoard.jsp?number=<%=rs.getString("number")%>"><%=rs.getString("title")%></a></td>
+									<td><%=rs.getString("content")%></td>
 									<td><%=rs.getString("c_date")%></td>
 									<td><%=rs.getString("nick")%></td>
 								</tr>

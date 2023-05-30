@@ -16,6 +16,7 @@ import com.smhrd.db.SqlSessionManager;
 public class noticeDAO {
 	
 	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+
 	
 	// noticeList 붑러오기
 	public List<noticeVO> boardList(noticeVO novo) {
@@ -26,11 +27,12 @@ public class noticeDAO {
 	}
 	
 	// 글 내용 보기 
-	public List<noticeVO> boardNotice(String number){
+	public List<noticeVO> boardNotice(int number){
 		SqlSession session = sqlSessionFactory.openSession(true);
-		List<noticeVO> boardNotice = session.selectOne(number);
+		List<noticeVO> boardNotice = session.selectOne("boardNotice",number);
 		session.close();
 		return boardNotice;
+	
 	
 	}
 	

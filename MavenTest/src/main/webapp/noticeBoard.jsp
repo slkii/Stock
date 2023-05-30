@@ -33,6 +33,7 @@
 <body class="nav-fixed">
 	<%
 	MemberVO loginM = (MemberVO) session.getAttribute("loginM");
+	noticeVO novo = (noticeVO) session.getAttribute("novo");
 	%>
 	<nav
 		class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white"
@@ -787,12 +788,10 @@
 					script.println("location.href='Login.jsp'");
 					script.println("</script>");
     				} --%>
-				<%
-				noticeVO novo = (noticeVO) session.getAttribute("novo");
-				%>
+				
 
 				<div class="container-xl px-4">
-					<!-- Knowledge base article-->
+					<!-- 게시글 보기 시작-->
 					<%
 					if (loginM == null) {
 					%>
@@ -801,14 +800,14 @@
 							<a class="btn btn-transparent-dark btn-icon"
 								href="noticeList.jsp"><i data-feather="arrow-left"></i></a>
 							<div class="ms-3">
-								<h2 class="my-3"><%=novo.getTitle()%></h2>
+								<h2 class="my-3"><%=novo.getTitle()%> </h2>
 							</div>
 						</div>
 						<div class="card-body">
 							<p class="lead mb-5">
 								<%=novo.getContent()%>
 							</p>
-						</div>
+						</div> 
 					</div>
 				</div>
 				<%
