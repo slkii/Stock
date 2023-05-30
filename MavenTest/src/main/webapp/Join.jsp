@@ -46,7 +46,9 @@
 
 <body class="nav-fixed">
 
-
+	<%
+	MemberVO loginM = (MemberVO) session.getAttribute("loginM");
+	%>
 	<nav
 		class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white"
 		id="sidenavAccordion">
@@ -60,7 +62,7 @@
 		<!-- * * Tip * * You can use text or an image for your navbar brand.-->
 		<!-- * * * * * * When using an image, we recommend the SVG format.-->
 		<!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
-		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="index.html">
+		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="main.jsp">
 			Stock's talk</a>
 
 		<!-- Navbar Items-->
@@ -90,31 +92,42 @@
 								<i data-feather="activity"></i>
 							</div> NEWS <!--  <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>  사이드바 드롭다운 -->
 						</a>
-						<!-- Sidenav Accordion (NEWS2)-->
-						<a class="nav-link collapsed" href="javascript:void(0);"
-							data-bs-toggle="collapse" data-bs-target="#collapseApps"
-							aria-expanded="false" aria-controls="collapseApps">
-							<div class="nav-link-icon">
-								<i data-feather="globe"></i>
-							</div> NEWS 2 <!--  <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>  사이드바 드롭다운 -->
-						</a>
-					</div>
-				</div>
+                                <!-- Sidenav Accordion (NEWS2)-->
+                  <a class="nav-link collapsed" href="noticeList.jsp">
+                     <div class="nav-link-icon">
+                        <i data-feather="globe" ></i>
+                     </div> 게시판 <!--  <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>  사이드바 드롭다운 -->
+                  </a>
+                  <!-- Sidenav Accordion (My Page)-->
+                  <%
+                  if (loginM != null) {
+                  %>
+                  <a class="nav-link collapsed" href="javascript:void(0);"
+                     data-bs-toggle="collapse" data-bs-target="#collapseUtilities"
+                     aria-expanded="false" aria-controls="collapseUtilities">
+                     <div class="nav-link-icon">
+                        <i data-feather="tool"></i>
+                     </div> My Page
+                     <div class="sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                     </div>
+                  </a>
+                  <div class="collapse" id="collapseUtilities"
+                     data-bs-parent="#accordionSidenav">
+                     <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="MypageEdit.jsp">내정보수정</a>
+                        <a class="nav-link" href="form.jsp">게시물등록</a> 
+                        <a class="nav-link" href="background.html">관심기업</a>
+                     </nav>
+                  </div>
+                  <%
+                  }
+                  %>
+               </div>
+            </div>
 
-			</nav>
-		</div>
-
-		<div id="layoutSidenav_content">
-			<main>
-				<header class="py-10 mb-4 bg-gradient-primary-to-secondary">
-					<div class="container">
-						<div class="text-center">
-							<h1 class="text-white">JOIN-UP</h1>
-							<p class="lead mb-0 text-white-50">회원가입 후 이용해 주세요.</p>
-						</div>
-					</div>
-				</header>
-			</main>
+         </nav>
+      </div>
 			<!-- Main page content-->
 
 

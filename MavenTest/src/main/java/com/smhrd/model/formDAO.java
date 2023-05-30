@@ -12,9 +12,10 @@ public class formDAO {
 
 	
 //	게시물 등록 insert
-	public int join(formVO vo) {
+	public int insert(formVO vo) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int cnt = session.insert("form", vo);
+		int cnt = session.insert("insert", vo);
+		System.out.println(cnt);
 		session.close();
 		return cnt;
 	}

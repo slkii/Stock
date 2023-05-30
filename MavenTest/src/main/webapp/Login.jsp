@@ -97,13 +97,37 @@
 							</div> NEWS <!--  <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>  사이드바 드롭다운 -->
 						</a>
 						<!-- Sidenav Accordion (NEWS2)-->
-						<a class="nav-link collapsed" href="javascript:void(0);"
-							data-bs-toggle="collapse" data-bs-target="#collapseApps"
-							aria-expanded="false" aria-controls="collapseApps">
-							<div class="nav-link-icon">
-								<i data-feather="globe"></i>
-							</div> NEWS 2 <!--  <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>  사이드바 드롭다운 -->
-						</a>
+				                  <!-- Sidenav Accordion (NEWS2)-->
+                  <a class="nav-link collapsed" href="noticeList.jsp">
+                     <div class="nav-link-icon">
+                        <i data-feather="globe" ></i>
+                     </div> 게시판 <!--  <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>  사이드바 드롭다운 -->
+                  </a>
+                  <!-- Sidenav Accordion (My Page)-->
+                  <%
+                  if (loginM != null) {
+                  %>
+                  <a class="nav-link collapsed" href="javascript:void(0);"
+                     data-bs-toggle="collapse" data-bs-target="#collapseUtilities"
+                     aria-expanded="false" aria-controls="collapseUtilities">
+                     <div class="nav-link-icon">
+                        <i data-feather="tool"></i>
+                     </div> My Page
+                     <div class="sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                     </div>
+                  </a>
+                  <div class="collapse" id="collapseUtilities"
+                     data-bs-parent="#accordionSidenav">
+                     <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="MypageEdit.jsp">내정보수정</a>
+                        <a class="nav-link" href="form.jsp">게시물등록</a> 
+                        <a class="nav-link" href="background.html">관심기업</a>
+                     </nav>
+                  </div>
+                  <%
+                  }
+                  %>
 					</div>
 				</div>
 

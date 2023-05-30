@@ -16,14 +16,19 @@ public class formService extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		
+		String email = request.getParameter("email");
+		String nick = request.getParameter("nick");
 		String title = request.getParameter("title");
-		String content = request.getParameter("content");
+		String content =request.getParameter("content");
+		String c_date =request.getParameter("c_date");
 		
-		formVO vo = new formVO(title,content);
+		
+		formVO vo =new formVO();
 		formDAO dao= new formDAO();
 		
-		int cnt = dao.join(vo);
-
+		int cnt = dao.insert(vo);
+		System.out.println(vo.toString());
+		
 		if (cnt > 0) {
 			System.out.println("게시물등록 성공");
 		} else {

@@ -36,5 +36,12 @@ public class noticeDAO {
 	
 	}
 	
+	public int join(noticeVO vo) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int cnt = session.insert("boardList", vo);
+		session.close();
+		return cnt;
+	}
+	
 	}
 

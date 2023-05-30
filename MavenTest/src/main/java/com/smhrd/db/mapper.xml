@@ -17,9 +17,10 @@
 	<update id="update" parameterType="com.smhrd.model.MemberVO">
 		update user set pw=#{pw},nick =#{nick},tel=#{tel}, addr=#{addr} where email=#{email}
 	</update>
-	
-	<insert id="form" parameterType="com.smhrd.model.formVO">
-		insert into kikidb (title ,content) values(#{title},#{content})
+	<!-- 게시물 등록 -->
+	<insert id="insert" parameterType="com.smhrd.model.formVO">
+		insert into noticeBoard 
+		(email, nick, title ,content,c_date) values(#{email},#{nick},#{title},#{content},sysdate())
 	</insert>
 
 <!-- 게시물 불러오기  -->
@@ -27,4 +28,9 @@
 		select * from tbl_service3 where service_seq = #{seq}
 	</select>
 	
+		<!-- 게시물 등록 -->
+<!-- 	<insert parameterType="com.smhrd.model.Notice1VO" id="write">
+		insert into noticeBoard (email, nick,title,content,c_date)values(#{email},#{nick},#{title},#{content},sysdate()) 
+	</insert> -->
+
 </mapper>

@@ -40,7 +40,7 @@
 	List<noticeVO> novo = (List<noticeVO>) session.getAttribute("list");
 	session.setAttribute("list", novo);
 	%>
-<nav
+	<nav
 		class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white"
 		id="sidenavAccordion">
 		<!-- Sidenav Toggle Button-->
@@ -87,8 +87,7 @@
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="MypageEdit.jsp">
 						<div class="dropdown-item-icon">
-							<idata-feather="settings" >
-							</i>
+							<idata-feather="settings" > </i>
 						</div> MyPage
 					</a> <a class="dropdown-item" href="Logout">
 						<div class="dropdown-item-icon">
@@ -119,12 +118,10 @@
 							</div> NEWS <!--  <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>  사이드바 드롭다운 -->
 						</a>
 						<!-- Sidenav Accordion (NEWS2)-->
-						<a class="nav-link collapsed" href="javascript:void(0);"
-							data-bs-toggle="collapse" data-bs-target="#collapseApps"
-							aria-expanded="false" aria-controls="collapseApps">
+						<a class="nav-link collapsed" href="noticeList.jsp">
 							<div class="nav-link-icon">
 								<i data-feather="globe"></i>
-							</div> NEWS 2 <!--  <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>  사이드바 드롭다운 -->
+							</div> 게시판 <!--  <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>  사이드바 드롭다운 -->
 						</a>
 						<!-- Sidenav Accordion (My Page)-->
 						<%
@@ -144,7 +141,8 @@
 							data-bs-parent="#accordionSidenav">
 							<nav class="sidenav-menu-nested nav">
 								<a class="nav-link" href="MypageEdit.jsp">내정보수정</a> <a
-									class="nav-link" href="background.html">관심기업</a>
+									class="nav-link" href="form.jsp">게시물등록</a> <a class="nav-link"
+									href="background.html">관심기업</a>
 							</nav>
 						</div>
 						<%
@@ -157,64 +155,76 @@
 		</div>
 		<div id="layoutSidenav_content">
 			<main>
-				<header
-					class="page-header page-header-compact page-header-light border-bottom bg-white mb-4">
-					<div class="container-fluid px-4">
-						<div class="page-header-content">
-							<div class="row align-items-center justify-content-between pt-3">
-								<div class="col-auto mb-3">
-									<h1 class="page-header-title">
-										<div class="page-header-icon">
-											<i data-feather="list"></i>
-										</div>
-										글 목록
-									</h1>
-								</div>
-								<div class="col-12 col-xl-auto mb-3">
-									<a class="btn btn-sm btn-light text-primary"
-										href="blog-management-create-post.html"> <i class="me-1"
-										data-feather="plus"></i> Create New Post
-									</a>
+				<header class="py-10 mb-4 bg-gradient-primary-to-secondary">
+					<div class="container-xl px-4"></div>
+				</header>
+				<!-- Main page content-->
+			</main>
+			<div id="layoutSidenav_content">
+				<main style="padding-left: 18%;">
+					<header
+						class="page-header page-header-compact page-header-light border-bottom bg-white mb-4">
+						<div class="container-fluid px-4">
+							<div class="page-header-content">
+								<div class="row align-items-center justify-content-between pt-3">
+									<div class="col-auto mb-3">
+										<h1 class="page-header-title">
+											<div class="page-header-icon">
+												<i data-feather="list"></i>
+											</div>
+											글 목록
+										</h1>
+									</div>
+									<%
+									if (loginM != null) {
+									%>
+									<div class="col-12 col-xl-auto mb-3">
+										<a class="btn btn-sm btn-light text-primary" href="form.jsp">
+											<i class="me-1" data-feather="plus"></i> Create New Post
+										</a>
+									</div>
+									<%
+									}
+									%>
 								</div>
 							</div>
 						</div>
-					</div>
-				</header>
+					</header>
 
-				<%
-				Class.forName("com.mysql.jdbc.Driver");
-				String dbUrl = "jdbc:mysql://project-db-stu.ddns.net:3307/smhrd_e_3?serverTimezone=UTC";
-				String dbUser = "smhrd_e_3";
-				String dbPass = "smhrde3";
-				Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-				String sql = "select * from noticeBoard;";
-				PreparedStatement pstmt = con.prepareStatement(sql);
-				ResultSet rs = pstmt.executeQuery(sql);
-				%>
+					<%
+					Class.forName("com.mysql.jdbc.Driver");
+					String dbUrl = "jdbc:mysql://project-db-stu.ddns.net:3307/smhrd_e_3?serverTimezone=UTC";
+					String dbUser = "smhrd_e_3";
+					String dbPass = "smhrde3";
+					Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+					String sql = "select * from noticeBoard;";
+					PreparedStatement pstmt = con.prepareStatement(sql);
+					ResultSet rs = pstmt.executeQuery(sql);
+					%>
 
-				<!-- noticeList 시작 -->
-				<div class="container-fluid px-4">
-					<div class="card">
-						<div class="card-body">
-							<table id="datatablesSimple">
-								<thead>
-									<tr>
-										<th>글번호</th>
-										<th>제목</th>
-										<th>글내용</th>
-										<th>작성일</th>
-										<th>작성자</th>
-									</tr>
-								</thead>
+					<!-- noticeList 시작 -->
+					<div class="container-fluid px-4">
+						<div class="card">
+							<div class="card-body">
+								<table id="datatablesSimple">
+									<thead>
+										<tr>
+											<th>글번호</th>
+											<th>제목</th>
+											<th>글내용</th>
+											<th>작성일</th>
+											<th>작성자</th>
+										</tr>
+									</thead>
 
-								<!-- 	<tr>
+									<!-- 	<tr>
 									<td>1</td>
 									<td scope="row"><a href="https://www.naver.com/"
 										class="link">글제목입니다.</a></td>
 									<td>20 Jun 2021</td>
 									<td><div>장향미</div></td>
 								</tr> -->
-								<%-- <%
+									<%-- <%
 								for (int i = 0; i < novo.size(); i++) {
 								%>
 								<tr>
@@ -225,7 +235,7 @@
 								</tr>
 								<%}%>  --%>
 
-								<%-- <%
+									<%-- <%
 								if(loginM==null){
 								while(rs.next()){%>
 								<tr>
@@ -249,55 +259,57 @@
 								<% }%>
 								<% }%> --%>
 
-								<%
-								if (loginM == null) {
-									while (rs.next()) {
-								%>
-								<%-- onclick="location.href='Board_content.jsp?board_seq=<%=bvo.getBoard_seq()%>&group_name=<%=vo.getGroup_name()%>';"> --%>
-								
-								<tr>
-									<td><%=rs.getString("number")%></td>
-									<td><a href="noticeBoard.jsp?number=<%=rs.getString("number")%>"><%=rs.getString("title")%></a></td>
-									<td><%=rs.getString("content")%></td>
-									<td><%=rs.getString("c_date")%></td>
-									<td><%=rs.getString("nick")%></td>
-								</tr>
-								<%
-								}
-								} else {
-								while (rs.next()) {
-								%>
-								<tr>
-									<td><%=rs.getString("number")%></td>
-									<td><a href="noticeBoard.jsp?number=<%=rs.getString("number")%>"><%=rs.getString("title")%></a></td>
-									<td><%=rs.getString("content")%></td>
-									<td><%=rs.getString("c_date")%></td>
-									<td><%=rs.getString("nick")%></td>
-								</tr>
-								
-								<%
-								}%>
-								<button class="btn btn-cyan" type="button" onclick="location.href='noticeWrite.jsp'">글쓰기</button>
-								<% }
-								%>
+									<%
+									if (loginM == null) {
+										while (rs.next()) {
+									%>
+									<%-- onclick="location.href='Board_content.jsp?board_seq=<%=bvo.getBoard_seq()%>&group_name=<%=vo.getGroup_name()%>';"> --%>
 
-							</table>
+									<tr>
+										<td><%=rs.getString("number")%></td>
+										<td><%=rs.getString("title")%></td>
+										<td><%=rs.getString("content")%></td>
+										<td><%=rs.getString("c_date")%></td>
+										<td><%=rs.getString("nick")%></td>
+									</tr>
+									<%
+									}
+									} else {
+									while (rs.next()) {
+									%>
+									<tr>
+										<td><%=rs.getString("number")%></td>
+										<td><%=rs.getString("title")%></td>
+										<td><%=rs.getString("content")%></td>
+										<td><%=rs.getString("c_date")%></td>
+										<td><%=rs.getString("nick")%></td>
+									</tr>
+
+									<%
+									}
+									%>
+									<%
+									}
+									%>
+
+								</table>
+							</div>
 						</div>
 					</div>
-				</div>
-			</main>
-			<footer class="footer-admin mt-auto footer-light">
-				<div class="container-xl px-4">
-					<div class="row">
-						<div class="col-md-6 small">Copyright &copy; Your Website
-							2021</div>
-						<div class="col-md-6 text-md-end small">
-							<a href="#!">Privacy Policy</a> &middot; <a href="#!">Terms
-								&amp; Conditions</a>
+				</main>
+				<footer class="footer-admin mt-auto footer-light">
+					<div class="container-xl px-4">
+						<div class="row">
+							<div class="col-md-6 small">Copyright &copy; Your Website
+								2021</div>
+							<div class="col-md-6 text-md-end small">
+								<a href="#!">Privacy Policy</a> &middot; <a href="#!">Terms
+									&amp; Conditions</a>
+							</div>
 						</div>
 					</div>
-				</div>
-			</footer>
+				</footer>
+			</div>
 		</div>
 	</div>
 	<script
