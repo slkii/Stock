@@ -1,3 +1,7 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="com.smhrd.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -20,47 +24,58 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
 	crossorigin="anonymous"></script>
 <style type="text/css">
-.row>* {
-	flex-shrink: 3;
+.row > * {
+    flex-shrink: 3;
+    width: 100%;
+    max-width: 100%;
+    padding-top: calc(var(--bs-gutter-x) * 0.5);;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-top: var(--bs-gutter-y);
+}
+
+.title{
+	font-size: 20px; 
+	font-weight: 800; 
+	color:black; 
+	background: lightyellow; 
 	width: 100%;
-	max-width: 100%;
-	padding-top: calc(var(- -bs-gutter-x)* 0.5);;
-	padding-right: calc(var(- -bs-gutter-x)* 0.5);
-	padding-left: calc(var(- -bs-gutter-x)* );
-	margin-top: var(- -bs-gutter-y);
 }
 
-.container-xl, .container-lg, .container-md, .container-sm, .container {
-	max-width: max-content;
-}
-
-.mb-3 {
-	margin-bottom: 10px !important;
-}
-
-.g-3, .gx-3 { -
-	-bs-gutter-x: -6rem;
-}
-
-.layoutSidenav_content {
+.sentiment{
+	color:black; 
 	width: 100%;
-	height: 100%;
-	text-align: center;
 }
 
-.maindiv {
-    padding-left: 20%;
-    padding-right: 10%;
+.summary{
+	color:black; 
+	background: lightblue; 
+	width: 100%;
+}
+
+.source{
+	font-size: 10px;
+	background: lightgreen;
+	width: 100%; 
+	text-align: right;
 }
 
 </style>
-
 </head>
 
 <body class="nav-fixed">
 	<%
 	//세션 값 가져옴 loginM 키 값이 지정되어 있는 세션 값  56번 로그인 판단기준.
 	MemberVO loginM = (MemberVO) session.getAttribute("loginM");
+	Class.forName("com.mysql.jdbc.Driver");
+	String dbUrl = "jdbc:mysql://project-db-stu.ddns.net:3307/smhrd_e_3?serverTimezone=UTC";
+	String dbUser = "smhrd_e_3";
+	String dbPass = "smhrde3";
+	Connection con = DriverManager.getConnection
+	      (dbUrl, dbUser, dbPass);
+	String sql = "select * from NEWS order by idx DESC;";
+	PreparedStatement pstmt = con.prepareStatement(sql);
+	ResultSet rs = pstmt.executeQuery(sql);
 	%>
 	<nav
 		class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white"
@@ -71,8 +86,12 @@
 			id="sidebarToggle">
 			<i data-feather="menu"></i>
 		</button>
-		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="main.jsp">
-		Stock's talk</a>
+		<!-- Navbar Brand-->
+		<!-- * * Tip * * You can use text or an image for your navbar brand.-->
+		<!-- * * * * * * When using an image, we recommend the SVG format.-->
+		<!-- * * * * * * Dimensions: Maximum height: 32px, maximum width: 240px-->
+		<a class="navbar-brand pe-3 ps-4 ps-lg-2" href="main.jsp">Stock's
+			talk</a>
 
 		<!-- Navbar Items-->
 		<ul class="navbar-nav align-items-center ms-auto">
@@ -105,7 +124,8 @@
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="MypageEdit.jsp">
 						<div class="dropdown-item-icon">
-							<idata-feather="settings" > </i>
+							<idata-feather="settings" >
+							</i>
 						</div> MyPage
 					</a> <a class="dropdown-item" href="Logout">
 						<div class="dropdown-item-icon">
@@ -128,7 +148,7 @@
 						<!-- Sidenav Menu Heading (Core)-->
 						<div class="sidenav-menu-heading">MENU</div>
 						<!-- Sidenav Accordion (NEWS1)-->
-						<a class="nav-link collapsed" href="javascript:void(0);"
+						<a class="nav-link collapsed" href="main.jsp"
 							data-bs-toggle="collapse" data-bs-target="#collapseDashboards"
 							aria-expanded="false" aria-controls="collapseDashboards">
 							<div class="nav-link-icon">
@@ -141,7 +161,7 @@
 							aria-expanded="false" aria-controls="collapseApps">
 							<div class="nav-link-icon">
 								<i data-feather="globe"></i>
-							</div> NEWS 2
+							</div> NEWS 2 <!--  <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>  사이드바 드롭다운 -->
 						</a>
 						<!-- Sidenav Accordion (My Page)-->
 						<%
@@ -161,8 +181,7 @@
 							data-bs-parent="#accordionSidenav">
 							<nav class="sidenav-menu-nested nav">
 								<a class="nav-link" href="MypageEdit.jsp">내정보수정</a> <a
-									class="nav-link" href="form.jsp">게시물등록</a> <a class="nav-link"
-									href="background.html">관심기업</a>
+									class="nav-link" href="background.html">관심기업</a>
 							</nav>
 						</div>
 						<%
@@ -170,76 +189,69 @@
 						%>
 					</div>
 				</div>
+
 			</nav>
 		</div>
-	</div>
-
-	<div id="layoutSidenav_content">
-		<main>
-			<header class="py-10 mb-4 bg-gradient-primary-to-secondary">
-				<div class="container">
-					<div class="text-center">
-						<h1 class="text-white">MAIN</h1>
-						<%if (loginM == null) {%>
-						<p class="lead mb-0 text-white-50">로그인 후 이용해 주세요.</p>
-						<%
-						}
-						%>
-					</div>
-				</div>
-			</header>
-		</main>
-		<!-- Main page content-->
-		<div class="maindiv" >
 		<div id="layoutSidenav_content">
-		<div class="container">
-			<div class="row" style="align-items: center;">
-				<!-- Example DataTable for Dashboard Demo-->
-				<div class="timeline-item">
-					<div class="card mb-4">
-						<div class="card-header">뉴스뉴스뉴스</div>
-						<div class="card-body">
-							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ 1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-							1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ1111ㅋ
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
-							<!-- 여기에 쓰ㄱ시요오오오  -->
+			<main>
+				<header
+					class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+					<div class="container-xl px-4">
+						<div class="page-header-content pt-4">
+							<div class="row align-items-center justify-content-between">
+								<div class="col-auto mt-4">
+									<h1 class="page-header-title">
+										<div class="page-header-icon">MAIN!!!!!!!!!!!!!!!!!!!!</div>
+									</h1>
+								</div>
+							</div>
+						</div>
+					</div>
+				</header>
+				<!-- Main page content-->
+				<div class="container">
+					<div class="row">
+						<!-- Example DataTable for Dashboard Demo-->				
+						<div class="timeline-item">
+							<div class="card mb-4">
+								<div class="card-header">뉴스뉴스뉴스</div>
+								<div class="card-body">
+									<%
+									while (rs.next()) {
+									%>
+										<div style="border-color: black; border-style: solid; border-width: 1.5px;">
+											<div class="title"><%=rs.getString("title")%></div>
+											<div class="sentiment"><%=rs.getString("sentiment")%></div>
+											<div class="summary"><%=rs.getString("summary")%></div>
+											<div class="source"> 출처 : <a href="<%=rs.getString("source")%>"> <%=rs.getString("source")%> </a></div>
+										</div>
+									<%
+									}
+										%>
+										
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</main>
+			<footer class="footer-admin mt-auto footer-light">
+				<div class="container-xl px-4">
+					<div class="row">
+						<div class="col-md-6 small">바보 © 멍청이 2023</div>
+						<div class="col-md-6 text-md-end small">
+							Team : Stock's talk · · · <a href="https://github.com/GPT-s/GPT">https://github.com/GPT-s/GPT</a>
+						</div>
+					</div>
+				</div>
+			</footer>
 		</div>
-</div>
-		
-		<footer class="footer-admin mt-auto footer-light">
-		
-		</footer>
 	</div>
-</div>
+	<script type="text/javascript">
+		setTimeout(function() {
+	        location.reload();
+	    }, 10000);
+	</script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
