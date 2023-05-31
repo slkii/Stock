@@ -132,7 +132,18 @@
 
 
 			<div id="layoutSidenav_content">
-				<main>
+			<main>
+				<header class="py-10 mb-4 bg-gradient-primary-to-secondary">
+					<div class="container">
+						<div class="text-center">
+							<h1 class="text-white">Login</h1>
+							<p class="lead mb-0 text-white-50">로그인 후 이용해 주세요.</p>
+						</div>
+					</div>
+				</header>
+			</main>
+		<div id="layoutSidenav_content">
+					<main>
 					<!--  page-->
 				<div class="container">
 						<div class="row">
@@ -193,19 +204,12 @@
 						</div>
 					</div>
 					</div>
+				</div>
 				</main>
+				
 			</div>
 			<footer class="footer-admin mt-auto footer-light">
-				<div class="container-xl px-4">
-					<div class="row">
-						<div class="col-md-6 small">Copyright &copy; Your Website
-							2021</div>
-						<div class="col-md-6 text-md-end small">
-							<a href="#!">Privacy Policy</a> &middot; <a href="#!">Terms
-								&amp; Conditions</a>
-						</div>
-					</div>
-				</div>
+			
 			</footer>
 		</div>
 	</div>
