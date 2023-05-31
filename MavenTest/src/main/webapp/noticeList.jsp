@@ -197,8 +197,7 @@
 					String dbUser = "smhrd_e_3";
 					String dbPass = "smhrde3";
 					Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-					String sql = "select * from noticeBoard order by number DESC;";
-					
+					String sql = "select * from noticeBoard;";
 					PreparedStatement pstmt = con.prepareStatement(sql);
 					ResultSet rs = pstmt.executeQuery(sql);
 					%>
@@ -268,7 +267,11 @@
 
 									<tr>
 										<td><%=rs.getString("number")%></td>
-										<td><%=rs.getString("title")%></td>
+										<td>
+										    <a href="noticeform.jsp?number=<%=rs.getString("number")%>">
+										        <%=rs.getString("title")%>
+										    </a>
+										</td>
 										<td><%=rs.getString("content")%></td>
 										<td><%=rs.getString("c_date")%></td>
 										<td><%=rs.getString("nick")%></td>
@@ -280,7 +283,11 @@
 									%>
 									<tr>
 										<td><%=rs.getString("number")%></td>
-										<td><%=rs.getString("title")%></td>
+										<td>
+										    <a href="noticeform.jsp?number=<%=rs.getString("number")%>">
+										        <%=rs.getString("title")%>
+										    </a>
+										</td>
 										<td><%=rs.getString("content")%></td>
 										<td><%=rs.getString("c_date")%></td>
 										<td><%=rs.getString("nick")%></td>

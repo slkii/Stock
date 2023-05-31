@@ -25,7 +25,7 @@
 
 <!-- 게시물 불러오기  -->
 	<select id="selectPost" resultType="com.smhrd.model.formVO">
-		select * from tbl_service3 where service_seq = #{seq}
+		select * from noticeBoard where number = #{number}
 	</select>
 	
 		<!-- 게시물 등록 -->

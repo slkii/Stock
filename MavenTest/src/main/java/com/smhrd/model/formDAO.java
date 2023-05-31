@@ -21,9 +21,9 @@ public class formDAO {
 	}
 	
 //게시물 불러오기 
-	public  formVO selectPost (String seq){
+	public  formVO selectPost (String number){
 		SqlSession session = sqlSessionFactory.openSession(true);
-		formVO post = session.selectOne("selectPost",seq);
+		formVO post = session.selectOne("selectPost",number);
 		session.close();
 		return post;
 	}
