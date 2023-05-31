@@ -100,5 +100,14 @@ public class noticeVO {
 		this.nick = nick;
 	}
 
+	public noticeVO(int number, String email, String nick, String title, String content) {
+        this.number = number;
+        this.email = email;
+        this.nick = nick;
+        this.title = title;
+        this.content = content;
+    }
+
+	
 	
 }

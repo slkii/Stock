@@ -218,47 +218,6 @@
 										</tr>
 									</thead>
 
-									<!-- 	<tr>
-									<td>1</td>
-									<td scope="row"><a href="https://www.naver.com/"
-										class="link">글제목입니다.</a></td>
-									<td>20 Jun 2021</td>
-									<td><div>장향미</div></td>
-								</tr> -->
-									<%-- <%
-								for (int i = 0; i < novo.size(); i++) {
-								%>
-								<tr>
-									<td><%=novo.get(i).getNumber()%></td>
-									<td scope='row'><a href="https://www.naver.com/" class="link"></a><%=novo.get(i).getTitle()%></td>
-									<td><%=novo.get(i).getC_date()%></td>
-									<td><div><%=novo.get(i).getNick()%></div></td>
-								</tr>
-								<%}%>  --%>
-
-									<%-- <%
-								if(loginM==null){
-								while(rs.next()){%>
-								<tr>
-									<td><%=rs.getString("number") %></td>
-									<td><%=rs.getString("title") %></td>
-									<td><%=rs.getString("c_date") %></td>
-									<td><%=rs.getString("nick") %></td>
-								</tr>
-								<%}%>
-								
-								<%}%>
-								<%else{
-								while(rs.next()){%>
-								<tr>
-									<td><%=rs.getString("number") %></td>
-									<td><%=rs.getString("title") %></td>
-									<td><%=rs.getString("c_date") %></td>
-									<td><%=rs.getString("nick") %></td>
-								</tr>
-								<button class="btn btn-cyan" type="button">Cyan</button>
-								<% }%>
-								<% }%> --%>
 
 									<%
 									if (loginM == null) {
