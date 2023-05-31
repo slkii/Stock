@@ -268,7 +268,11 @@
 
 									<tr>
 										<td><%=rs.getString("number")%></td>
-										<td><%=rs.getString("title")%></td>
+										<td>
+										    <a href="noticeform.jsp?number=<%=rs.getString("number")%>">
+										        <%=rs.getString("title")%>
+										    </a>
+										</td>
 										<td><%=rs.getString("content")%></td>
 										<td><%=rs.getString("c_date")%></td>
 										<td><%=rs.getString("nick")%></td>
@@ -280,7 +284,11 @@
 									%>
 									<tr>
 										<td><%=rs.getString("number")%></td>
-										<td><%=rs.getString("title")%></td>
+										<td>
+										    <a href="noticeform.jsp?number=<%=rs.getString("number")%>">
+										        <%=rs.getString("title")%>
+										    </a>
+										</td>
 										<td><%=rs.getString("content")%></td>
 										<td><%=rs.getString("c_date")%></td>
 										<td><%=rs.getString("nick")%></td>
