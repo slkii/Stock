@@ -20,10 +20,9 @@ public class formService extends HttpServlet {
 		String nick = request.getParameter("nick");
 		String title = request.getParameter("title");
 		String content =request.getParameter("content");
-		String c_date =request.getParameter("c_date");
 		
 		
-		formVO vo =new formVO();
+		formVO vo = new formVO(email, nick, title, content);
 		formDAO dao= new formDAO();
 		
 		int cnt = dao.insert(vo);

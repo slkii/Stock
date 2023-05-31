@@ -185,11 +185,12 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										
-										<td>name - <%=loginM.getNick()%>  email - <%=loginM.getEmail()%></td>
+									<tr style="display: none">
+										<td><input style="color: black;" type="text" class="form-control" placeholder="이메일" name="email" maxlength="50" value="<%= loginM.getEmail() %>"></td>
 									</tr>
-							
+									<tr style="display: none">
+										<td><input type=""text"" class="form-control" placeholder="닉네임" name="nick" maxlength="50" value="<%= loginM.getNick() %>"></td>
+									</tr>
 									<tr>
 										<td><input type="text" class="form-control"
 											placeholder="글 제목" name="title" maxlength="50"></td>

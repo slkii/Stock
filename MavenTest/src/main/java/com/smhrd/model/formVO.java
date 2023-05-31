@@ -43,11 +43,11 @@ public class formVO {
 	public void setC_date(String c_date) {
 		this.c_date = c_date;
 	}
-	@Override
-	public String toString() {
-		return "formVO [number=" + number + ", email=" + email + ", nick=" + nick + ", title=" + title + ", content="
-				+ content + ", c_date=" + c_date + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "formVO [number=" + number + ", email=" + email + ", nick=" + nick + ", title=" + title + ", content="
+//				+ content + ", c_date=" + c_date + "]";
+//	}
 	public formVO(String number, String email, String nick, String title, String content, String c_date) {
 		super();
 		this.number = number;
@@ -61,13 +61,16 @@ public class formVO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public formVO(String email, String nick, String title, String content, String c_date) {
+	public formVO(String email, String nick, String title, String content) {
 		super();
 		this.email = email;
 		this.nick = nick;
 		this.title = title;
 		this.content = content;
-		this.c_date = c_date;
+	}
+	@Override
+	public String toString() {
+		return "formVO [email=" + email + ", nick=" + nick + ", title=" + title + ", content=" + content + "]";
 	}
 	
 
