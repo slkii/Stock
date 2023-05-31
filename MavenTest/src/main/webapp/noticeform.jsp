@@ -6,32 +6,33 @@
 <%@page import="com.smhrd.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-	
-<%@ page import="java.util.*,java.sql.*,com.smhrd.model.noticeVO" %>
+
+
+<%@ page import="java.util.*,java.sql.*,com.smhrd.model.noticeVO"%>
 
 <%
 try {
-    Class.forName("com.mysql.jdbc.Driver");
-    String dbUrl = "jdbc:mysql://project-db-stu.ddns.net:3307/smhrd_e_3?serverTimezone=UTC";
-    String dbUser = "smhrd_e_3";
-    String dbPass = "smhrde3";
-    Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+	Class.forName("com.mysql.jdbc.Driver");
+	String dbUrl = "jdbc:mysql://project-db-stu.ddns.net:3307/smhrd_e_3?serverTimezone=UTC";
+	String dbUser = "smhrd_e_3";
+	String dbPass = "smhrde3";
+	Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
 
-    String number = request.getParameter("number");
+	String number = request.getParameter("number");
 
-    String sql = "SELECT * FROM noticeBoard WHERE number = ?";
-    PreparedStatement pstmt = con.prepareStatement(sql);
-    pstmt.setString(1, number);
-    ResultSet rs = pstmt.executeQuery();
+	String sql = "SELECT * FROM noticeBoard WHERE number = ?";
+	PreparedStatement pstmt = con.prepareStatement(sql);
+	pstmt.setString(1, number);
+	ResultSet rs = pstmt.executeQuery();
 
-    if (rs.next()) {
-        noticeVO notice = new noticeVO();
-        notice.setTitle(rs.getString("title"));
-        notice.setNick(rs.getString("nick"));
-        notice.setEmail(rs.getString("email"));
-        notice.setContent(rs.getString("content"));
-        request.setAttribute("notice", notice);
+	if (rs.next()) {
+		noticeVO notice = new noticeVO();
+		notice.setTitle(rs.getString("title"));
+		notice.setNick(rs.getString("nick"));
+		notice.setEmail(rs.getString("email"));
+		notice.setContent(rs.getString("content"));
+		notice.setC_date(rs.getString("c_date"));
+		request.setAttribute("notice", notice);
 %>
 
 <!DOCTYPE html>
@@ -81,7 +82,6 @@ try {
 		String dbUrl = "jdbc:mysql://project-db-stu.ddns.net:3307/smhrd_e_3?serverTimezone=UTC";
 		String dbUser = "smhrd_e_3";
 		String dbPass = "smhrde3"; */
-
 	%>
 
 	<nav
@@ -207,42 +207,39 @@ try {
 			<div id="layoutSidenav_content">
 				<div class="container">
 					<div class="row" id="form">
-						<form method="post" action="formService">
+						<form method="#" action="#">
 							<table class="table"
 								style="text-align: center; border: 1px solid #dddddd;">
 								<thead>
 									<tr>
-										<th colspan="2" style="background-color: #eeeeee; text-align: center; font-size: 30px; font: bold;">
+										<th colspan="3"
+											style="background-color: #eeeeee; text-align: center; font-size: 30px; font: bold;">
 											<%=((noticeVO) request.getAttribute("notice")).getTitle()%>
 										</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td><%=((noticeVO) request.getAttribute("notice")).getNick()%> (<%=((noticeVO) request.getAttribute("notice")).getEmail()%>)</td>
+									<tr style="background-color: white;">
+										<td style="text-align: right; width: 10%; font: bold;">작성자</td>
+										<td style="text-align: left;width: 40%"><%=((noticeVO) request.getAttribute("notice")).getNick()%>(<%=((noticeVO) request.getAttribute("notice")).getEmail()%>)</td>
+										<td style="text-align: right; width: 50%"><%= ((noticeVO) request.getAttribute("notice")).getC_date() %></td>
 									</tr>
-									<tr>
-										<td><%=((noticeVO) request.getAttribute("notice")).getContent()%></td>
+									<tr style="background-color: white; ">
+										<td colspan="3" style="height: 150px;"><div style=" display : flex ;justify-content: center; align-items : center; width: 100%; height: 100%"><%=((noticeVO) request.getAttribute("notice")).getContent()%></div></td>
+									
 									</tr>
+
 								</tbody>
 							</table>
 						</form>
+						<div style="text-align: center;">
+							<a href="noticeList.jsp"><button class="btn btn-primary">목록</button></a>
+						</div>
 					</div>
 				</div>
 
 			</div>
-			<footer class="footer-admin mt-auto footer-light">
-				<div class="container-xl px-4">
-					<div class="row">
-						<div class="col-md-6 small">Copyright &copy; Your Website
-							2021</div>
-						<div class="col-md-6 text-md-end small">
-							<a href="#!">Privacy Policy</a> &middot; <a href="#!">Terms
-								&amp; Conditions</a>
-						</div>
-					</div>
-				</div>
-			</footer>
+			<footer class="footer-admin mt-auto footer-light"> </footer>
 
 		</div>
 	</div>
@@ -255,14 +252,14 @@ try {
 
 
 <%
-    } else {
-        out.println("No data found");
-    }
+} else {
+out.println("No data found");
+}
 
-    rs.close();
-    pstmt.close();
-    con.close();
+rs.close();
+pstmt.close();
+con.close();
 } catch (Exception e) {
-    out.println("Database connection problem: " + e.getMessage());
+out.println("Database connection problem: " + e.getMessage());
 }
 %>
