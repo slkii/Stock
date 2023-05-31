@@ -197,7 +197,8 @@
 					String dbUser = "smhrd_e_3";
 					String dbPass = "smhrde3";
 					Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-					String sql = "select * from noticeBoard;";
+					String sql = "select * from noticeBoard order by number DESC;";
+					
 					PreparedStatement pstmt = con.prepareStatement(sql);
 					ResultSet rs = pstmt.executeQuery(sql);
 					%>

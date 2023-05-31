@@ -34,7 +34,7 @@ public class formService extends HttpServlet {
 			System.out.println("게시물등록 실패...");
 		}
 		
-		response.sendRedirect("main.jsp");
+		response.sendRedirect("noticeList.jsp");
 		
 	}
 
