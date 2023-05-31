@@ -1,5 +1,3 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.smhrd.model.formDAO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -8,6 +6,34 @@
 <%@page import="com.smhrd.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	
+<%@ page import="java.util.*,java.sql.*,com.smhrd.model.noticeVO" %>
+
+<%
+try {
+    Class.forName("com.mysql.jdbc.Driver");
+    String dbUrl = "jdbc:mysql://project-db-stu.ddns.net:3307/smhrd_e_3?serverTimezone=UTC";
+    String dbUser = "smhrd_e_3";
+    String dbPass = "smhrde3";
+    Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+
+    String number = request.getParameter("number");
+
+    String sql = "SELECT * FROM noticeBoard WHERE number = ?";
+    PreparedStatement pstmt = con.prepareStatement(sql);
+    pstmt.setString(1, number);
+    ResultSet rs = pstmt.executeQuery();
+
+    if (rs.next()) {
+        noticeVO notice = new noticeVO();
+        notice.setTitle(rs.getString("title"));
+        notice.setNick(rs.getString("nick"));
+        notice.setEmail(rs.getString("email"));
+        notice.setContent(rs.getString("content"));
+        request.setAttribute("notice", notice);
+%>
+
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
@@ -51,9 +77,6 @@
 	//세션 값 가져옴 loginM 키 값이 지정되어 있는 세션 값  56번 로그인 판단기준.
 	MemberVO loginM = (MemberVO) session.getAttribute("loginM");
 	formVO vo = (formVO) session.getAttribute("vo");
-/* 	int number  =Integer.parseInt(request.getParameter("number"));
-	formDAO dao = new formDAO();
-	ArrayList<formVO> list = (ArrayList<formVO>) session.getAttribute("list") */
 	/* 	Class.forName("com.mysql.jdbc.Driver");
 		String dbUrl = "jdbc:mysql://project-db-stu.ddns.net:3307/smhrd_e_3?serverTimezone=UTC";
 		String dbUser = "smhrd_e_3";
@@ -189,23 +212,17 @@
 								style="text-align: center; border: 1px solid #dddddd;">
 								<thead>
 									<tr>
-										<th colspan="2"
-											style="background-color: #eeeeee; text-align: center;">
-											게시판 글쓰기</th>
+										<th colspan="2" style="background-color: #eeeeee; text-align: center; font-size: 30px; font: bold;">
+											<%=((noticeVO) request.getAttribute("notice")).getTitle()%>
+										</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td>제목</td>
+										<td><%=((noticeVO) request.getAttribute("notice")).getNick()%> (<%=((noticeVO) request.getAttribute("notice")).getEmail()%>)</td>
 									</tr>
 									<tr>
-										<td>닉네임</td><td>닉네임</td>
-									</tr>
-									<tr>
-										<td>글내용</td>
-									</tr>
-									<tr>
-										<td>댓글 쓰기</td>
+										<td><%=((noticeVO) request.getAttribute("notice")).getContent()%></td>
 									</tr>
 								</tbody>
 							</table>
@@ -235,3 +252,17 @@
 	<script src="js/scripts.js"></script>
 </body>
 </html>
+
+
+<%
+    } else {
+        out.println("No data found");
+    }
+
+    rs.close();
+    pstmt.close();
+    con.close();
+} catch (Exception e) {
+    out.println("Database connection problem: " + e.getMessage());
+}
+%>
