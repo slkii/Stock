@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.formDAO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -49,6 +51,9 @@
 	//세션 값 가져옴 loginM 키 값이 지정되어 있는 세션 값  56번 로그인 판단기준.
 	MemberVO loginM = (MemberVO) session.getAttribute("loginM");
 	formVO vo = (formVO) session.getAttribute("vo");
+/* 	int number  =Integer.parseInt(request.getParameter("number"));
+	formDAO dao = new formDAO();
+	ArrayList<formVO> list = (ArrayList<formVO>) session.getAttribute("list") */
 	/* 	Class.forName("com.mysql.jdbc.Driver");
 		String dbUrl = "jdbc:mysql://project-db-stu.ddns.net:3307/smhrd_e_3?serverTimezone=UTC";
 		String dbUser = "smhrd_e_3";

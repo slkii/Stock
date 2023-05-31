@@ -1,5 +1,6 @@
 package com.smhrd.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -23,17 +24,18 @@ public class formDAO {
 	}
 	
 //게시물 불러오기 
-	public  formVO formVO (String seq){
+	public  formVO formVO (String value){
 		SqlSession session = sqlSessionFactory.openSession(true);
-		formVO post = session.selectOne("selectPost",seq);
+		formVO post = session.selectOne("selectPost",value);
 		session.close();
 		return post;
 	}
-
-	public List<formVO> formVO (SqlSession session) {
-        List<formVO> list = session.selectList("selectPost");
-        System.out.println(list);
-        return list;
-    }
+	
+//	public List<formVO> formVO (String value) {
+//		SqlSession session = sqlSessionFactory.openSession(true);
+//        List<formVO> list = session.selectList("selectPost",value);
+//        session.close();
+//        return (ArrayList<formVO>)list;
+//    }
 
 }
