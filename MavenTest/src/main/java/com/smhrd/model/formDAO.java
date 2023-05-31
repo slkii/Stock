@@ -1,5 +1,7 @@
 package com.smhrd.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -21,10 +23,17 @@ public class formDAO {
 	}
 	
 //게시물 불러오기 
-	public  formVO selectPost (String number){
+	public  formVO formVO (String seq){
 		SqlSession session = sqlSessionFactory.openSession(true);
-		formVO post = session.selectOne("selectPost",number);
+		formVO post = session.selectOne("selectPost",seq);
 		session.close();
 		return post;
 	}
+
+	public List<formVO> formVO (SqlSession session) {
+        List<formVO> list = session.selectList("selectPost");
+        System.out.println(list);
+        return list;
+    }
+
 }
